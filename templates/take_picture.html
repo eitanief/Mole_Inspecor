@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block title %} Home Page {% endblock %}
+
+
+{% block content %}
+<form action ="#" method="post">
+    <p>Take Picture:</p>
+    <div id="camera">
+        <img src="{{url_for('video_feed')}}" alt="video feed">
+    </div>
+    <br>
+   <div class="input-group mb-3">
+  <span class="input-group-text">Length and width of the mole</span>
+  <input type="text" class="form-control" name="length" id ="EnterLength" placeholder="length" aria-label="length" aria-describedby="basic-addon2">
+  <span class="input-group-text" id="basic-addon1">mm</span>
+       <input type="text" class="form-control" name="width" id ="EnterWidth" placeholder="width" aria-label="width" aria-describedby="basic-addon3">
+<span class="input-group-text" id="basic-addon2">mm</span>
+   </div>
+
+<div class="input-group mb-3">
+  <input type="text" class="form-control" name="mole_id" id ="EnterID" placeholder="Enter mole Id" aria-label="Enter mole Id" aria-describedby="basic-addon3">
+</div>
+     <button type="submit" class="btn btn-primary" name="Upload" value=Upload/>Upload</button>
+
+</form>
+{% endblock %}

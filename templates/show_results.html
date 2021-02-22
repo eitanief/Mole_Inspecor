@@ -1,0 +1,130 @@
+{% extends "base.html" %}
+{% block title %} Home Page {% endblock %}
+
+{% block content %}
+  <div class="row g-0">
+    <div class="col-md-4">
+      <img src={{url_for('static', filename='captures/' + img_path)}} class="img-thumbnail" style="max-width: 250px;">
+        <div class="position-relative bottom">
+            <ul class="list-unstyled">
+                 <li>mole's inspection results:</li>
+            </ul>
+            <ul>
+              {% if sym == False %}
+               <li >mole is asymmetric</li>
+           {% endif %}
+          {% if sym == True %}
+                 <li>mole is symmetric</li>
+           {% endif %}
+                {% if border == False %}
+               <li>borders are not clear</li>
+           {% endif %}
+          {% if border == True %}
+                 <li>borders are clear</li>
+           {% endif %}
+                {% if color == False %}
+               <li>mole has multiple colors</li>
+           {% endif %}
+          {% if color == True %}
+                 <li>mole has a single shade</li>
+           {% endif %}
+                {% if diameter == False %}
+               <li>diameter is greater than 6mm</li>
+           {% endif %}
+          {% if diameter == True %}
+                 <li>diameter is not greater than 6mm</li>
+           {% endif %}
+                {% if change == False %}
+               <li>mole has changed in size</li>
+           {% endif %}
+          {% if change == True %}
+                 <li>mole has not changed in time</li>
+           {% endif %}
+            </ul>
+          </div>
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title">Inspection results</h5>
+        <p class="card-text">This are the results of the mole inspection: </p>
+          <table class="table">
+               <thead>
+                <tr>
+                  <th scope="col" class="table-primary">Asymmetry</th>
+                  <th scope="col" class="table-danger">border</th>
+                  <th scope="col" class="table-success">Color</th>
+                    <th scope="col" class="table-warning">Diameter</th>
+                    <th scope="col" class="table-info">Evolving</th>
+                </tr>
+              </thead>
+          <tr>
+          <td class="table-primary">
+              {% if sym == False %}
+              <p>&#10006;</p>
+           {% endif %}
+          {% if sym == True %}
+                <p>&#10004;</p>
+           {% endif %}
+          </td>
+          <td class="table-danger">
+               {% if border == False %}
+               <p>&#10006;</p>
+           {% endif %}
+          {% if border == True %}
+                <p>&#10004;</p>
+           {% endif %}
+          </td>
+          <td class="table-success">
+               {% if color == False %}
+               <p>&#10006;</p>
+           {% endif %}
+          {% if color == True %}
+                <p>&#10004;</p>
+           {% endif %}
+          </td>
+              <td class="table-warning">
+                {% if diameter == False %}
+               <p>&#10006;</p>
+           {% endif %}
+          {% if diameter == True %}
+                <p>&#10004;</p>
+           {% endif %}
+              </td>
+              <td class="table-info">
+                  {% if change == False %}
+               <p>&#10006;</p>
+           {% endif %}
+          {% if change == True %}
+                <p>&#10004;</p>
+           {% endif %}
+              </td>
+          </tr>
+          </table>
+          <ul class="list-group">
+          <li class="list-group-item">&#10004; - Mole is in the normal range for this aspect</li>
+          <li class="list-group-item">&#10006; - Mole is not in the normal range for this aspect</li>
+          </ul>
+            <p>mole size is: {{size}} mm</p>
+          <h5 class="card-title">Mole History:</h5>
+          {% for path in mole_imgs %}
+          {% if path != img_path %}
+          <img src="{{ url_for('static', filename='captures/' + path) }}" class="img-thumbnail" width="200" height="200" disabled>
+          <p>mole size: {{mole_imgs[path]}} mm</p>
+           <p class="card-text"><small class="text-muted">upload date: {{path.split('.',1)[0]}}</small></p>
+          {% endif %}
+          {% endfor %}
+      </div>
+    </div>
+  </div>
+
+
+
+<nav class="navbar navbar-light bg-light">
+    <form action ="#" method="post" style=" max-width: 700px;margin: auto;">
+    <button type="submit" class="btn btn-primary" name="submit_button" value="Take picture"/>Take picture</button>
+    <button type="submit" class="btn btn-primary" name="submit_button" value="Upload picture"/>Upload picture</button>
+    <button type="submit" class="btn btn-primary" name="submit_button" value="Show pictures"/>Show pictures</button>
+
+</form>
+</nav>
+{% endblock %}

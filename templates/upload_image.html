@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block title %} Upload new File {% endblock %}
+
+
+{% block content %}
+ <form method=post enctype=multipart/form-data>
+<div class="input-group mb-3">
+  <input type=file class="form-control" id="formFile" name=file aria-label="Username" aria-describedby="basic-addon1">
+</div>
+
+<div class="input-group mb-3">
+  <span class="input-group-text">Height and weight of the mole</span>
+  <input type="text" class="form-control" name="length" id ="EnterLength" placeholder="length" aria-label="length" aria-describedby="basic-addon2">
+    <span class="input-group-text" id="basic-addon1">mm</span>
+  <input type="text" class="form-control" name="width" id ="EnterWidth" placeholder="width" aria-label="width" aria-describedby="basic-addon3">
+<span class="input-group-text" id="basic-addon2">mm</span>
+</div>
+
+<div class="input-group mb-3">
+  <input type="text" class="form-control" name="mole_id" id ="EnterID" placeholder="Enter mole Id" aria-label="Enter mole Id" aria-describedby="basic-addon3">
+</div>
+     <button type="submit" class="btn btn-primary" name="Upload" value=Upload/>Upload</button>
+ </form>
+
+
+
+<!--     <div class="mb-3">-->
+<!--           <label for="EnterSize" class="form-label">Enter size:</label>-->
+<!--         <input type="text" name="Enter size" id ="EnterSize"/>-->
+<!--        <input type="submit" name ="submit" value="submit"/>-->
+
+<!--         </div>-->
+
+
+{% endblock %}
+

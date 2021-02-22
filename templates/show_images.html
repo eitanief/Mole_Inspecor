@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block title %} Home Page {% endblock %}
+
+{% block content %}
+<div id="loading"></div>
+<div id="content">
+ <h5 class="card-title">Mole images collection</h5>
+    <p class="card-text">Select an image and inspect.</p>
+<table class="table table-bordered">
+    <form action ="#" method="post" class="form-check">
+{% for im in image_names %}
+    <tr>
+            <input type="image" src="{{ url_for('static', filename='captures/' + im) }}" class="img img-thumbnail" width="180" height="180" disabled>
+            <input class="form-check-input" type="checkbox" name="submit_button" value={{im}}>
+    </tr>
+        {% endfor %}
+        <p> <button type="submit" class="btn btn-primary" onclick="loading();">Inspect image</button></p>
+          </form>
+</table>
+<nav class="navbar navbar-light bg-light">
+    <form action ="#" method="post" style=" max-width: 700px;margin: auto;">
+    <button type="submit" class="btn btn-primary" name="submit_button" value="Take picture"/>Take picture</button>
+    <button type="submit" class="btn btn-primary" name="submit_button" value="Upload picture"/>Upload picture</button>
+
+</form>
+</nav>
+</div>
+{% endblock %}
