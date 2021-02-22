@@ -73,7 +73,7 @@ def show_images():
             session['diameter'] = check_diameter(im_path)
             session['color'] = is_colored(im_path)
             return redirect(url_for("inspect_mole"))
-    lst = [img for img in listdir(UPLOAD_FOLDER)]
+    lst = [img for img in listdir(UPLOAD_FOLDER) if img != 'sample.txt']
     return render_template("show_images.html", image_names=lst)
 
 
