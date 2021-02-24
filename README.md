@@ -8,6 +8,9 @@ $ git clone https://github.com/eitanief/Mole_Inspecor.git
 ```
 Inside "Mole_Inspector" folder run:
 ```
+pip install -r requirements.txt
+```
+```
 $ python main.py
 ```
 
