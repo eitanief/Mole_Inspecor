@@ -32,7 +32,7 @@ def is_symetric(image_path):
     ellipse_pnts = cv2.ellipse2Poly((int(ellipse[0][0]), int(ellipse[0][1])), (int(ellipse[1][0]), int(ellipse[1][1])),
                                     int(ellipse[2]), 0, 360, 1)
     diff1 = cv2.matchShapes(max_cnt1, ellipse_pnts, 1, 0.0)
-    if diff1 > 0.25:
+    if diff1 > 0.025:
         return False
     else:
         return True
@@ -60,7 +60,7 @@ def is_border_clear(image_path):
                                     int(ellipse[2]), 0, 360, 1)
     diff2 = cv2.matchShapes(max_cnt, ellipse_pnts, 1, 0.0)
 
-    if np.abs(diff1 - diff2) > 0.02:
+    if np.abs(diff1 - diff2) > 0.03:
         return False
     return True
 

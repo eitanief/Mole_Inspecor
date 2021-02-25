@@ -31,7 +31,7 @@ def check_size_change(path):
 def check_diameter(path):
     mole_id = indexing[path]
     size = image_data[mole_id][path]
-    if size[0] > 6 or size[1] > 6:
+    if size[0] >= 6 or size[1] >= 6:
         return False
     return True
 
