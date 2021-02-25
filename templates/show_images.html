@@ -8,10 +8,11 @@
     <p class="card-text">Select an image and inspect.</p>
 <table class="table table-bordered">
     <form action ="#" method="post" class="form-check">
-{% for im in image_names %}
+{% for im in images %}
     <tr>
-            <input type="image" src="{{ url_for('static', filename='captures/' + im) }}" class="img img-thumbnail" width="180" height="180" disabled>
+        <input type="image"  src="{{ url_for('static', filename='captures/' + im) }}" class="img img-thumbnail card-img-top" width="180" height="180" disabled >
             <input class="form-check-input" type="checkbox" name="submit_button" value={{im}}>
+        id:{{images[im]}}
     </tr>
         {% endfor %}
         <p> <button type="submit" class="btn btn-primary" onclick="loading();">Inspect image</button></p>

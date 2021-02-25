@@ -32,7 +32,7 @@ def is_symetric(image_path):
     ellipse_pnts = cv2.ellipse2Poly((int(ellipse[0][0]), int(ellipse[0][1])), (int(ellipse[1][0]), int(ellipse[1][1])),
                                     int(ellipse[2]), 0, 360, 1)
     diff1 = cv2.matchShapes(max_cnt1, ellipse_pnts, 1, 0.0)
-    if diff1 > 0.02:
+    if diff1 > 0.25:
         return False
     else:
         return True
@@ -118,7 +118,7 @@ def is_colored(image_path):
 
     main_colors = [color for (color, count) in final_colors_counts]
     main_counts = [count for (color, count) in final_colors_counts]
-    if len(main_counts) > 7:
+    if len(main_counts) > 6:
         return False
     else:
         return True
