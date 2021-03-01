@@ -11,7 +11,7 @@ Inside "Mole_Inspector" folder run:
 pip install -r requirements.txt
 ```
 ```
-$ python main.py
+$ python app.py
 ```
 
 Open local host:
